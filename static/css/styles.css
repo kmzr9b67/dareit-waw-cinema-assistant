@@ -1,0 +1,92 @@
+body{
+    background-color: #FAF3E0;
+    color: #264653;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: initial;
+    font-weight: normal;
+    text-align: center;
+}
+
+.container-main{
+    background-color: #cac4b1;
+    padding: 1%;
+    margin-top: 1%;
+    margin-right: 0%;
+    margin-left: 0%;
+    margin-bottom: 10%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container-form,.container-title{
+    margin: 1% 0%;
+}
+.container-header{
+    background-color: #cac4b1;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    z-index: 1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+#input{
+    border-radius:5px;
+    height: 38px;
+    background-color: #4682B4;
+    border-color: #EEEEEE;
+    color: #DCDCDC;
+    text-align: center;
+    margin: 5px;
+    font-weight: bold;}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 235, 205, 0.27);
+    background-color: rgba(255, 235, 205, 0.49);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    margin-bottom: 2%;
+
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+
+
+
+}
+th {
+    background-color: #f9f9f9;
+    color: #333;
+
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/*thead{*/
+/*    background-color:#B0C4DE;*/
+/*    font-weight: bold;}*/
+
+/*th, td{*/
+/*    align-self: center;*/
+/*    border: 1px solid rgb(160 160 160);}*/
+
+/*table {*/
+/*    display: compact;*/
+/*    border: 1px solid rgb(160 160 160);*/
+/*    font-size: 0.8rem;*/
+/*    letter-spacing: 0.5px;*/
+/*    padding: 30px;*/
+/*    margin-bottom: 2%;*/
+/*    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);*/
+/*}*/
+button{
+    padding: 2%;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;}
