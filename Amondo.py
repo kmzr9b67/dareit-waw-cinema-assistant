@@ -40,10 +40,6 @@ class Amondo(CinemaScraper):
             for mapa in executor.map(__fetch_movie_info,
                                      url_list, time_list):
                 CinemaScraper.result.append(mapa)
-
         return 0
-
-
-
 
 

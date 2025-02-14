@@ -28,10 +28,13 @@ def iluzjon(day_number):
     headings = cinema.html_parser().find_all('h3')
     try:
         counter = [int(i.text[0:2]) for i in headings].index(day_number)
+
     except ValueError:
         return []
 
+
     show_table = cinema.find_elements_by_tag('table')[counter]
+    # print(show_table)
     show_table_hour = show_table.find_all(class_='hour')
     time_and_title = [i.text.split(' - ') for i in show_table_hour]
     list_times = [i[0] for i in time_and_title]
@@ -59,6 +62,7 @@ def final():
         executor.submit(iluzjon, int(date.day))
 
     repertuar = CinemaScraper.result
+    print(repertuar)
     repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
 
     return render_template('index.html', post=repertuar)

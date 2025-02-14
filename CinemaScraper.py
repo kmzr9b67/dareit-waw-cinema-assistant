@@ -17,6 +17,7 @@ class CinemaScraper:
         if self._html is None:
             self._html = BeautifulSoup(self.make_request(),
                                        'html.parser')
+
         return self._html
 
     def find_elements_by_tag(self, tag):
