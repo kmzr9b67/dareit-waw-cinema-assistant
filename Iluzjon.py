@@ -11,7 +11,7 @@ class Iluzjon(CinemaScraper):
         self.base_url = 'https://www.iluzjon.fn.org.pl/repertuar.html'
         super().__init__(self.base_url)
         Iluzjon.numer += 1
-        self.cinema = 'iluzjion'
+        self.cinema = 'Iluzjion'
         self.id = Iluzjon.numer
 
     def __get_result(self, schedule, movie_title, realise_year):
@@ -22,7 +22,7 @@ class Iluzjon(CinemaScraper):
         return movie.to_dictionary()
 
 
-    def get_shows_list(self, lista):
+    def get_shows_list(self, lista:list) -> list:
         def __get_year(info):
             try:
                 int(info[-1])
@@ -36,7 +36,7 @@ class Iluzjon(CinemaScraper):
 
         return Iluzjon.lista_shows
 
-    def get_result_map(self, time, title, year):
+    def get_result_map(self, time:str, title:str, year:str) -> list:
         with ThreadPoolExecutor(len(time)) as executor:
             for result in executor.map(self.__get_result, time, title, year):
                 CinemaScraper.result.append(result)

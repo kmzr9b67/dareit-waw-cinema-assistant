@@ -15,21 +15,21 @@ class Movie:
         self.rating = rating
         self.director = director
 
-    def set_title(self):
+    def set_title(self) -> str:
         self.title = CinemaScraper(self.base_url).find_elements_by_tag(
             'h1'
         )[0].text
         return self.title
 
-    def set_director(self):
+    def set_director(self) -> None:
         self.director = CinemaScraper(self.base_url)
 
-    def set_cinema(self, cinema_name):
+
+    def set_cinema(self, cinema_name) -> None:
         self.cinema = cinema_name
 
-    def set_rating(self):
+    def set_rating(self) -> None:
         try:
-            # print(Movie.IA.search_movie(f'{self.title} ({self.year})'))
             info = Movie.IA.get_movie(
                 Movie.IA.search_movie(f'{self.title} ({self.year})')[0].getID())
             if self.cinema == 'Iluzjon':
@@ -37,9 +37,9 @@ class Movie:
             self.rating = info.data['rating']
         except (KeyError, IndexError):
             self.rating = ''
+    
 
-    def set_year(self):
-        # self.director = CinemaScraper(self.base_url).html_parser()
+    def set_year(self) -> None:
         try:
             info = [i.find_all_next('li') for i in
                             CinemaScraper(self.base_url).html_parser().find_all(
@@ -51,7 +51,7 @@ class Movie:
         except (IndexError, AttributeError):
             self.year = '0000'
 
-    def to_dictionary(self):
+    def to_dictionary(self) -> dict:
         return {
             'rating': self.rating,
             'time': self.time,

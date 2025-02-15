@@ -15,15 +15,13 @@ DAYS = {
 
 app = Flask(__name__)
 
-
-def amondo(number):
+def amondo(number: str) -> None:
     CinemaScraper.result = []
     cinema = Amondo()
     cinema.retrive_movie_info(number)
-    return 0
 
 
-def iluzjon(day_number):
+def iluzjon(day_number: int):
     cinema = Iluzjon()
     headings = cinema.html_parser().find_all('h3')
     try:
@@ -34,7 +32,6 @@ def iluzjon(day_number):
 
 
     show_table = cinema.find_elements_by_tag('table')[counter]
-    # print(show_table)
     show_table_hour = show_table.find_all(class_='hour')
     time_and_title = [i.text.split(' - ') for i in show_table_hour]
     list_times = [i[0] for i in time_and_title]
@@ -46,7 +43,6 @@ def iluzjon(day_number):
 
     show_years = cinema.get_shows_list(years)
     cinema.get_result_map(list_times, list_title, show_years)
-    return 0
 
 
 @app.route('/')
@@ -62,7 +58,6 @@ def final():
         executor.submit(iluzjon, int(date.day))
 
     repertuar = CinemaScraper.result
-    print(repertuar)
     repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
 
     return render_template('index.html', post=repertuar)

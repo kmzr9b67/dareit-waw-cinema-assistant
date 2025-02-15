@@ -12,11 +12,11 @@ class Amondo(CinemaScraper):
         self.base_url = 'https://kinoamondo.pl/repertuar'
         super().__init__(self.base_url)
         Amondo.numer += 1
-        self.cinema = 'amondo'
+        self.cinema = 'Amondo'
         self.id = Amondo.numer
 
 
-    def retrive_movie_info(self, number):
+    def retrive_movie_info(self, number: int) ->int:
         def __fetch_movie_info(url, time):
             movie = Movie(base_url=url, time=time)
             movie.set_title()
