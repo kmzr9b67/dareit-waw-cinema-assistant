@@ -1,5 +1,6 @@
 import datetime
 from concurrent.futures.thread import ThreadPoolExecutor
+from datetime import datetime, timedelta
 
 from flask import Flask, render_template, request
 
@@ -7,10 +8,13 @@ from Amondo import Amondo
 from CinemaScraper import CinemaScraper
 from Iluzjon import Iluzjon
 
+DAY = (datetime.now().date() + timedelta(2)).strftime('%a, %d.%m')
+
 DAYS = {
-    'TODAY': datetime.datetime.now().date(),
-    'TOMORROW': datetime.datetime.now().date() + datetime.timedelta(1),
-    'DAY AFTER TOMORROW': datetime.datetime.now().date() + datetime.timedelta(2)
+    'Today': datetime.now().date(),
+    'Tomorrow': datetime.now().date() + timedelta(1),
+    (datetime.now().date() + timedelta(2)).strftime('%a,'): 
+                                                    datetime.now().date() + timedelta(2)
 }
 
 app = Flask(__name__)
@@ -45,9 +49,9 @@ def iluzjon(day_number: int) -> None:
     cinema.get_result_map(list_times, list_title, show_years)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def front():
-    return render_template('help.html')
+    return render_template('help.html', dzien=DAY)
 
 @app.route('/final', methods=['GET', 'POST'])
 def final():
@@ -60,7 +64,8 @@ def final():
 
     repertuar = CinemaScraper.result
     repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
-    # TODO 1: Znaleźć jak tu mogę przekazać datę do FrontEnd.
+    if day_get not in ['Today', 'Tomorrow']:
+        day_get = DAY
     return render_template('index.html', post=repertuar, 
                            what_day = day_get, what_date = date)
 

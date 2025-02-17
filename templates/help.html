@@ -11,15 +11,15 @@
     <div id="form" class = "container-form">
         <form action="{{url_for('final', options = day)}}"  method="GET">
             <div class="flex form-check-inline">
-                <input type="radio" id="TODAY" name="day" value="TODAY" checked>
-                <label for="TODAY">TODAY</label>
+                <input type="radio" id="TODAY" name="day" value="Today" checked>
+                <label for="TODAY">Today</label>
             </div>
             <div class="flex form-check-inline">
-                <input type="radio" id="TOMORROW" name="day" value="TOMORROW">
-                <label for="TOMORROW">TOMORROW</label></div>
+                <input type="radio" id="TOMORROW" name="day" value="Tomorrow">
+                <label for="TOMORROW">Tomorrow</label></div>
             <div class="flex form-check-inline">
-                <input type="radio" id="DAY AFTER TOMORROW" name="day" value="DAY AFTER TOMORROW">
-                <label for="DAY AFTER TOMORROW">DAY AFTER TOMORROW</label></div>
+                <input type="radio" id="DAY AFTER TOMORROW" name="day" value={{dzien}}>
+                <label for="DAY AFTER TOMORROW">{{dzien}}</label></div>
           <button id='button' type="submit" class="btn btn-primary"><img src="/static/arrow-main.png" width="24" height="24"></button>
         </form>
     </div>
