@@ -51,7 +51,8 @@ def front():
 
 @app.route('/final', methods=['GET', 'POST'])
 def final():
-    date = DAYS[request.args.get('day')]
+    day_get = request.args.get('day')
+    date = DAYS[day_get]
 
     with ThreadPoolExecutor(max_workers=2) as executor:
         executor.submit(amondo, date)
@@ -60,7 +61,8 @@ def final():
     repertuar = CinemaScraper.result
     repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
     # TODO 1: Znaleźć jak tu mogę przekazać datę do FrontEnd.
-    return render_template('index.html', post=repertuar)
+    return render_template('index.html', post=repertuar, 
+                           what_day = day_get, what_date = date)
 
 
 if __name__ == '__main__':

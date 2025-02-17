@@ -9,10 +9,10 @@
 {% else: %}
     <table id='' class="center">
         <thead>
-        <th scope="col">TODAY</th> <!-- POWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
+        <th scope="col">{{what_day}}</th> <!-- POWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
         <th scope="col"></th>
         <th scope="col"></th>
-        <th scope="col" class="">DATE</th><!-- PdOWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
+        <th scope="col" class="">{{what_date}}</th><!-- PdOWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
         </thead>
         <tbody>
             {% for i in post: %}
