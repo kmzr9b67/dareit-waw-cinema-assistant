@@ -20,7 +20,11 @@
                 <th scope="row"><a href={{i['link']}}>{{ i['title'] }}</a></th>
                 <th><img src="/static/rating-icon.png"> {{ i['rating'] }}</th>
                 <th> {{ i['time'] }}</th>
-                <th><img src="/static/iluzjon-logo.png"> {{ i['cinema'] }}</th> <!-- zmienić ['cinema'] żeby wyświetlało w zależności od kina odpowiednie logo -->
+                {% if i['cinema'] == 'Iluzjon' %}
+                    <th><img src="/static/iluzjon-logo.png"></th> <!-- zmienić ['cinema'] żeby wyświetlało w zależności od kina odpowiednie logo -->
+                {% else: %}
+                    <th><img src="/static/amondo-logo.png"></th>
+                {% endif %}
                 </tr>
             {% endfor %}
         </tbody>
