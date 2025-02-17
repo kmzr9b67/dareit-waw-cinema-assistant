@@ -4,9 +4,9 @@ from CinemaScraper import CinemaScraper
 
 class Movie:
     IA = imdb.IMDb()
-    
+
     def __init__(
-            self, time, base_url, title=None, cinema=None, year=None,
+            self, time, base_url, cinema, title=None, year=None,
             rating=None, director = None):
         self.base_url = base_url
         self.time = time
@@ -21,13 +21,6 @@ class Movie:
             'h1'
         )[0].text
         return self.title
-
-    def set_director(self) -> None:
-        self.director = CinemaScraper(self.base_url)
-
-
-    def set_cinema(self, cinema_name) -> None:
-        self.cinema = cinema_name
 
     def set_rating(self) -> None:
         try:

@@ -18,10 +18,9 @@ class Amondo(CinemaScraper):
 
     def retrive_movie_info(self, number: int) ->int:
         def __fetch_movie_info(url, time):
-            movie = Movie(base_url=url, time=time)
+            movie = Movie(base_url=url, time=time, cinema='Amondo')
             movie.set_title()
             movie.set_year()
-            movie.set_cinema('Amondo')
             movie.set_rating()
             return movie.to_dictionary()
 

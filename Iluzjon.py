@@ -21,7 +21,6 @@ class Iluzjon(CinemaScraper):
 
         return movie.to_dictionary()
 
-
     def get_shows_list(self, lista:list) -> list:
         def __get_year(info):
             try:
