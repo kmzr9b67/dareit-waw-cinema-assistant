@@ -4,6 +4,7 @@ from CinemaScraper import CinemaScraper
 
 class Movie:
     IA = imdb.IMDb()
+    
     def __init__(
             self, time, base_url, title=None, cinema=None, year=None,
             rating=None, director = None):

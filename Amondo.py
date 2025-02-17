@@ -41,5 +41,3 @@ class Amondo(CinemaScraper):
                                      url_list, time_list):
                 CinemaScraper.result.append(mapa)
         return 0
-
-

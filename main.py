@@ -21,7 +21,7 @@ def amondo(number: str) -> None:
     cinema.retrive_movie_info(number)
 
 
-def iluzjon(day_number: int):
+def iluzjon(day_number: int) -> None:
     cinema = Iluzjon()
     headings = cinema.html_parser().find_all('h3')
     try:
@@ -59,7 +59,7 @@ def final():
 
     repertuar = CinemaScraper.result
     repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
-
+    # TODO 1: Znaleźć jak tu mogę przekazać datę do FrontEnd.
     return render_template('index.html', post=repertuar)
 
 

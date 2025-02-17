@@ -14,7 +14,7 @@ class Iluzjon(CinemaScraper):
         self.cinema = 'Iluzjion'
         self.id = Iluzjon.numer
 
-    def __get_result(self, schedule, movie_title, realise_year):
+    def __get_result(self, schedule:str, movie_title:str, realise_year:str) -> dict:
         movie = Movie(title=movie_title, time=schedule, cinema='Iluzjon',
                      year=realise_year, base_url=self.base_url)
         movie.set_rating()
