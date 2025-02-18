@@ -15,6 +15,7 @@ class Movie:
         self.year = year
         self.rating = rating
         self.director = director
+        
 
     def set_title(self) -> str:
         self.title = CinemaScraper(self.base_url).find_elements_by_tag(

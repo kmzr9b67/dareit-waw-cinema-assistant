@@ -9,6 +9,7 @@ class CinemaScraper:
         self.base_url = base_url
         self.session = requests.Session()
         self._html = None
+        
 
     def make_request(self) -> str:
         return requests.get(self.base_url).text

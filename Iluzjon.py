@@ -13,6 +13,7 @@ class Iluzjon(CinemaScraper):
         Iluzjon.numer += 1
         self.cinema = 'Iluzjion'
         self.id = Iluzjon.numer
+        
 
     def __get_result(self, schedule:str, movie_title:str, realise_year:str) -> dict:
         movie = Movie(title=movie_title, time=schedule, cinema='Iluzjon',
