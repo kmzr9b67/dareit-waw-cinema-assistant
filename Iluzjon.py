@@ -25,6 +25,7 @@ class Iluzjon(CinemaScraper):
     def get_shows_list(self, lista:list) -> list:
         def __get_year(info):
             try:
+                print(info)
                 int(info[-1])
                 return info[-1].strip()
             except ValueError:

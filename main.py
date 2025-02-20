@@ -37,7 +37,7 @@ def iluzjon(day_number: int) -> None:
 
     show_table = cinema.find_elements_by_tag('table')[counter]
     show_table_hour = show_table.find_all(class_='hour')
-    time_and_title = [i.text.split(' - ') for i in show_table_hour]
+    time_and_title = [i.text.split(' - ', 1) for i in show_table_hour]
     list_times = [i[0] for i in time_and_title]
     list_title = [i[1] for i in time_and_title]
     years = [i.text.split(',') for i in show_table.find_all('i')]
@@ -50,11 +50,11 @@ def iluzjon(day_number: int) -> None:
 
 
 @app.route('/', methods=['GET', 'POST'])
-def front():
-    return render_template('help.html', dzien=DAY)
+def home():
+    return render_template('home.html', dzien=DAY)
 
-@app.route('/final', methods=['GET', 'POST'])
-def final():
+@app.route('/result', methods=['GET', 'POST'])
+def get_info():
     day_get = request.args.get('day')
     date = DAYS[day_get]
 
@@ -66,7 +66,7 @@ def final():
     repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
     if day_get not in ['Today', 'Tomorrow']:
         day_get = DAY
-    return render_template('index.html', post=repertuar, 
+    return render_template('day_schedule.html', post=repertuar, 
                            what_day = day_get, what_date = date)
 
 

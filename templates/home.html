@@ -9,7 +9,7 @@
             <h1 class="h1-title">Warsaw movie <br>recommendations</h1>
     </div>
     <div id="form" class = "container-form">
-        <form action="{{url_for('final', options = day)}}"  method="GET">
+        <form action="{{url_for('get_info', options = day)}}"  method="GET">
             <div class="flex form-check-inline">
                 <input type="radio" id="TODAY" name="day" value="Today" checked>
                 <label for="TODAY">Today</label>

@@ -31,7 +31,7 @@ class Amondo(CinemaScraper):
         except AttributeError:
             return []
 
-        time_list = [i.text for i in box.find_all(class_='time')]
+        time_list = [i.text[-5:] for i in box.find_all(class_='time')]
         if Amondo.numer > self.id:
             return 0
 

@@ -9,7 +9,7 @@
 {% else: %}
     <table id='' class="center">
         <thead>
-        <th scope="col">{{what_day}}</th> <!-- POWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
+        <th scope="col">{{what_day}}</th> <!-- POWINNO ZMIENIAĆ SIĘ DYNAMICZNIE--> 
         <th scope="col"></th>
         <th scope="col"></th>
         <th scope="col" class="">{{what_date}}</th><!-- PdOWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
@@ -31,7 +31,7 @@
     </table>
 {% endif %}
 <button id="button" class="btn btn-primary">
-    <a href={{url_for('front')}} style="color:inherit"><img src="/static/GoBack-Icon.png" width="24" height="24"></a>
+    <a href={{url_for('home')}} style="color:inherit"><img src="/static/GoBack-Icon.png" width="24" height="24"></a>
 </button>
 {% endblock %}
 
