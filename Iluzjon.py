@@ -4,15 +4,15 @@ from CinemaScraper import CinemaScraper
 from Movie import Movie
 
 class Iluzjon(CinemaScraper):
-    lista_shows = []
-    numer = 0
+    list_shows = []
+    number = 0
 
     def __init__(self):
         self.base_url = 'https://www.iluzjon.fn.org.pl/repertuar.html'
         super().__init__(self.base_url)
-        Iluzjon.numer += 1
+        Iluzjon.number += 1
         self.cinema = 'Iluzjion'
-        self.id = Iluzjon.numer
+        self.number = Iluzjon.number
         
 
     def __get_result(self, schedule:str, movie_title:str, realise_year:str) -> dict:
@@ -21,23 +21,30 @@ class Iluzjon(CinemaScraper):
         movie.set_rating()
 
         return movie.to_dictionary()
+    
+    @staticmethod
+    def __get_year(info:list) -> str:
+        try:
+            # It removes the last element from the list, which represents the year, 
+            # but the year is not always provided. The list also contains the countries 
+            # of production.
+            int(info[-1])
+            return info[-1].strip()
+        except ValueError:
+            return '0000'
 
-    def get_shows_list(self, lista:list) -> list:
-        def __get_year(info):
-            try:
-                print(info)
-                int(info[-1])
-                return info[-1].strip()
-            except ValueError:
-                return "0000"
+    def get_shows_list(self, list:list) -> list:
+        if Iluzjon.number > self.number:
+            return 0 
+        with ThreadPoolExecutor(len(list)) as executor:
+            for result in executor.map(Iluzjon.__get_year, list):
+                Iluzjon.list_shows.append(result)
 
-        with ThreadPoolExecutor(len(lista)) as executor:
-            for result in executor.map(__get_year, lista):
-                Iluzjon.lista_shows.append(result)
-
-        return Iluzjon.lista_shows
+        return Iluzjon.list_shows
 
     def get_result_map(self, time:str, title:str, year:str) -> list:
+        if Iluzjon.number > self.number:
+            return 0 
         with ThreadPoolExecutor(len(time)) as executor:
             for result in executor.map(self.__get_result, time, title, year):
                 CinemaScraper.result.append(result)

@@ -5,15 +5,15 @@ from Movie import Movie
 
 
 class Amondo(CinemaScraper):
-    numer = 0
+    number = 0
     url = []
 
     def __init__(self):
         self.base_url = 'https://kinoamondo.pl/repertuar'
         super().__init__(self.base_url)
-        Amondo.numer += 1
+        Amondo.number += 1
         self.cinema = 'Amondo'
-        self.id = Amondo.numer
+        self.number = Amondo.number
 
 
     def retrive_movie_info(self, number: int) ->int:
@@ -32,9 +32,10 @@ class Amondo(CinemaScraper):
             return []
 
         time_list = [i.text[-5:] for i in box.find_all(class_='time')]
-        if Amondo.numer > self.id:
+        
+        if Amondo.number > self.number:
             return 0
-
+        
         with ThreadPoolExecutor(len(url_list)) as executor:
             for mapa in executor.map(__fetch_movie_info,
                                      url_list, time_list):
