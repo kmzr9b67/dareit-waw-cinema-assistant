@@ -1,5 +1,4 @@
 import datetime
-import copy
 from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
@@ -39,14 +38,14 @@ def iluzjon(day_number: int) -> None:
     time_and_title = [i.text.split(' - ', 1) for i in show_table_hour]
     list_times = [i[0] for i in time_and_title]
     list_titles = [i[1] for i in time_and_title]
-    years = [i.text.split(',') for i in show_table.find_all('i')]
-    show_years = cinema.get_shows_list(years)
-    cinema.get_result_map(list_times, list_titles, show_years)
+    list_years_html = [i.text.split(',') for i in show_table.find_all('i')]
+    list_years = cinema.get_shows_list(list_years_html)
+    cinema.get_result_map(list_times, list_titles, list_years)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', dzien=DAY_AFTER_TOMORROW)
+    return render_template('home.html', day_after_tomorrow = DAY_AFTER_TOMORROW)
 
 @app.route('/result', methods=['GET', 'POST'])
 def get_info():
@@ -59,10 +58,11 @@ def get_info():
         executor.submit(iluzjon, int(date.day))
 
     repertuar = CinemaScraper.result
-    repertuar.sort(key=lambda x: str(x['rating']), reverse=True)
+    repertuar.sort(key = lambda x: str(x['rating']), reverse = True)
+    
     if day_get not in ['Today', 'Tomorrow']:
         day_get = DAY_AFTER_TOMORROW
-        
+
     return render_template('day_schedule.html', post=repertuar, 
                         what_day = day_get, what_date = date)
 
