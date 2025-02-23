@@ -1,6 +1,6 @@
 import imdb
 
-from CinemaScraper import CinemaScraper
+from cinema_scraper import CinemaScraper
 
 class Movie:
     IA = imdb.IMDb()

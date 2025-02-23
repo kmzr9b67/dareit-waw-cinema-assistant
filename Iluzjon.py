@@ -1,6 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
 
-from CinemaScraper import CinemaScraper
+from cinema_scraper import CinemaScraper
 from Movie import Movie
 
 class Iluzjon(CinemaScraper):

@@ -1,9 +1,6 @@
-import sys
 import pytest
 
-sys.path.insert(0, '/Users/kingamazur/PycharmProjects/dareit-waw-cinema-assistant/') 
-
-from Movie import Movie
+from movie import Movie
 
 @pytest.fixture
 def movie():

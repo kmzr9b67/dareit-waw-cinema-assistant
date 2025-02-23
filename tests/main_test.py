@@ -1,7 +1,4 @@
-import sys
 from datetime import datetime, timedelta
-
-sys.path.insert(0, '/Users/kingamazur/PycharmProjects/dareit-waw-cinema-assistant/') 
 
 from main import DAYS
 

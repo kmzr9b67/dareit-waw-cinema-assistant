@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(0, '/Users/kingamazur/PycharmProjects/dareit-waw-cinema-assistant/') 
-
 from Iluzjon import Iluzjon
 
 def test_get_year():

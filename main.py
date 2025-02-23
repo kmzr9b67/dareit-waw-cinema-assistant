@@ -1,11 +1,10 @@
-import datetime
 from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
 from flask import Flask, render_template, request
 
 from Amondo import Amondo
-from CinemaScraper import CinemaScraper
+from cinema_scraper import CinemaScraper
 from Iluzjon import Iluzjon
 
 DAY_AFTER_TOMORROW = (datetime.now().date() + timedelta(2)).strftime('%a, %d.%m')
@@ -62,7 +61,6 @@ def get_info():
     
     if day_get not in ['Today', 'Tomorrow']:
         day_get = DAY_AFTER_TOMORROW
-
     return render_template('day_schedule.html', post=repertuar, 
                         what_day = day_get, what_date = date)
 
