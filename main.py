@@ -3,9 +3,9 @@ from datetime import datetime, timedelta
 
 from flask import Flask, render_template, request
 
-from Amondo_temp import Amondo
+from amondo import Amondo
 from cinema_scraper import CinemaScraper
-from Iluzjon import Iluzjon
+from iluzjon import Iluzjon
 
 DAY_AFTER_TOMORROW = (datetime.now().date() + timedelta(2)).strftime('%a, %d.%m')
 

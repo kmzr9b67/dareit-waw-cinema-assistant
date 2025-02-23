@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor
 
 from cinema_scraper import CinemaScraper
-from Movie import Movie
+from Movie_temp import Movie
 
 class Iluzjon(CinemaScraper):
     list_shows = []
