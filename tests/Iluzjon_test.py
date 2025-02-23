@@ -1,4 +1,4 @@
-from Iluzjon import Iluzjon
+from iluzjon import Iluzjon
 
 def test_get_year():
     expected_result_year = '2024'

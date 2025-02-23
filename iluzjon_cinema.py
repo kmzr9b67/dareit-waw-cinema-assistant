@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 from cinema_scraper import CinemaScraper
 from movie import Movie
 
-class Iluzjon(CinemaScraper):
+class IluzjonCinema(CinemaScraper):
     list_shows = []
     number = 0
 

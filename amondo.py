@@ -1,7 +1,7 @@
 from concurrent.futures.thread import ThreadPoolExecutor
 
 from cinema_scraper import CinemaScraper
-from Movie import Movie
+from movie import Movie
 
 
 class Amondo(CinemaScraper):
