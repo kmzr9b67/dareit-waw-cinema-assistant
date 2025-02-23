@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 from flask import Flask, render_template, request
 
-from Amondo import Amondo
+from Amondo_temp import Amondo
 from cinema_scraper import CinemaScraper
 from Iluzjon import Iluzjon
 
