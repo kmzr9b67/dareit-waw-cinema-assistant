@@ -8,7 +8,6 @@ from cinema_scraper import CinemaScraper
 from iluzjon import Iluzjon
 
 DAY_AFTER_TOMORROW = (datetime.now().date() + timedelta(2)).strftime('%a, %d.%m')
-
 DAYS = {
     'Today': datetime.now().date(),
     'Tomorrow': datetime.now().date() + timedelta(1),
@@ -16,15 +15,14 @@ DAYS = {
                                                     datetime.now().date() + timedelta(2)
 }
 
-number_of_clicked = 0
 
 app = Flask(__name__)
 
-def amondo(number: str) -> None:
+def get_amondo_data(number: str) -> None:
     cinema = Amondo()
     cinema.retrive_movie_info(number) 
 
-def iluzjon(day_number: int) -> None:
+def get_iluzjon_data(day_number: int) -> None:
     cinema = Iluzjon()
     headings = cinema.html_parser().find_all('h3')
     try:
@@ -53,8 +51,8 @@ def get_info():
     CinemaScraper.result = []
 
     with ThreadPoolExecutor(max_workers=2) as executor:
-        executor.submit(amondo, date)
-        executor.submit(iluzjon, int(date.day))
+        executor.submit(get_amondo_data, date)
+        executor.submit(get_iluzjon_data, int(date.day))
 
     repertuar = CinemaScraper.result
     repertuar.sort(key = lambda x: str(x['rating']), reverse = True)
