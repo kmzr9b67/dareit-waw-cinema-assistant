@@ -5,22 +5,28 @@
 {% endblock%}
 
 {% block content %}
-    <div id = 'title' class="container-title">
-            <h1 class="h1-title">Warsaw movie <br>recommendations</h1>
+    <div class="container-title">
+            <h1>Warsaw movie <br>recommendations</h1>
     </div>
-    <div id="form" class = "container-form">
+    <div class="container-form">
         <form action="{{url_for('get_info', options = day)}}"  method="GET">
-            <div class="flex form-check-inline">
-                <input type="radio" id="TODAY" name="day" value="Today" checked>
-                <label for="TODAY">Today</label>
+            <div class="container-form">
+                <div class="radio-button">
+                    <input type="radio" name="day" value="Today" checked>
+                    <label for="TODAY">Today</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="TOMORROW" name="day" value="Tomorrow">
+                    <label for="TOMORROW">Tomorrow</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="DAY AFTER TOMORROW" name="day" value={{dzien}}>
+                    <label for="DAY AFTER TOMORROW">{{dzien}}</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn-primary"><img src="/static/arrow-main.png" width="24" height="24"></button>
+                </div>
             </div>
-            <div class="flex form-check-inline">
-                <input type="radio" id="TOMORROW" name="day" value="Tomorrow">
-                <label for="TOMORROW">Tomorrow</label></div>
-            <div class="flex form-check-inline">
-                <input type="radio" id="DAY AFTER TOMORROW" name="day" value={{dzien}}>
-                <label for="DAY AFTER TOMORROW">{{dzien}}</label></div>
-          <button id='button' type="submit" class="btn btn-primary"><img src="/static/arrow-main.png" width="24" height="24"></button>
         </form>
     </div>
 

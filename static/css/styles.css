@@ -1,16 +1,35 @@
-body{
+body {
     background-color: #000000;
     color: #FDFDFD;
     font-family: "Montserrat", serif;
-    /* font-optical-sizing: auto;
-    font-style: initial;
-    font-weight: normal; */
     text-align: center;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
-.h1-title {
-    padding-top: 185px;
-    padding-bottom: 64px;
+.container-header {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+.nav-item {
+    display: inline-block;
+    align-self: center;
+    padding-top: 30px;
+}
+
+#nav-item-middle {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    padding-top: 150px;
     font-family: "Bebas Neue", serif;
     font-weight: 700;
     font-size: 96px;
@@ -29,33 +48,66 @@ body{
     padding-top: 5%;
 }
 
-.container-form,.container-title{
-    margin: 1% 0%;
+.container-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
-.container-header{
-    padding-top: 40px;
-    z-index: 1;
+
+.radio-button {
+    width: 250px;
+    height: 57px;
+    border: 2px solid white;
+    text-align: center;
+    transition: all 0.2s ease;
+    border-radius: 30px;
+    vertical-align: auto;
+    align-items: center;
+}
+
+.radio-button:hover {
+    background-color: #EBF1FB;
+    color: #000000;
+}
+
+.radio-button:active {
+    background-color: #CCDCF6;
+    color: #000000;
+}
+
+.radio-button:focus {
+    background-color: #CCDCF6;
+    color: #000000;
+    border: 2px solid #FDFDFD
+}
+
+input[type=radio] {
+    display: none;
+}
+
+label {
+    padding-top: 28px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .btn-primary {
     width: 56px;
     height: 56px;
-    top: 192px;
-    left: 269px;
-    gap: 4px;
     color: #FDFDFD;
     background-color: #FE6C3B;
     border-radius: 110px;
     border-width: 2px;
     border-color: #FDFDFD;
-    padding-top: 16px;
-    padding-right: 24px;
-    padding-bottom: 16px;
-    padding-left: 24px;
-    
 }
 
-#input {
+.btn-primary:hover {
+    background-color: #CF572F;
+}
+
+/* #input {
     width: 250px;
     height: 59px;
     color: #FDFDFD;
@@ -68,7 +120,7 @@ body{
     padding-right: 24px;
     padding-bottom: 16px;
     padding-left: 24px;
-}
+} */
 
 table {
     border-collapse: collapse;
@@ -84,14 +136,14 @@ th, td {
     border-bottom: 1px solid #FDFDFD;
 }
 
-th {
-    /* background-color: #f9f9f9;
-    color: #333; */
+/* th {
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 tr:nth-child(even) {
-  /* background-color: #f9f9f9; */
-}
+  background-color: #f9f9f9;
+} */
 
 h4 {
     font-family: "Montserrat";
@@ -100,6 +152,16 @@ h4 {
     line-height: 24px;
     letter-spacing: 0%;
     text-align: center;
+}
+
+h5 {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0%;
+    text-align: left;
+    color: #E5E5E5;
+    padding: 0px 0px 0px 0px;
 }
 
 thead {
@@ -111,6 +173,10 @@ thead {
     line-height: 35px;
     letter-spacing: 0%;
     text-align: center;
+}
+
+.table-row {
+    height: 120px;
 }
 
 /*th, td{*/
@@ -127,14 +193,11 @@ thead {
 /*    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);*/
 /*}*/
 
-.center {
+/* .center {
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
-.flex form-check-inline {
-    font-family: "Montserrat", serif;
-}
 
 img {
     justify-content: center;
@@ -149,3 +212,48 @@ a {
 .result-info {
     padding-top: 64px;
 }
+
+ul, a {
+padding: 0;
+}
+
+.cinema-logo {
+    justify-content: right;
+}
+
+ul {
+    list-style-type: none;  
+}
+
+label {
+    vertical-align: middle;
+}
+
+.movie-title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 19px;
+    /* line-height: 21px; */
+    letter-spacing: 0%;
+    text-align: left;
+    color: #E5E5E5;
+    padding-top: 34px;
+}
+
+.movie-time {
+    padding-left: 91px;
+    padding-right: 91px;
+}
+
+/* .today {
+    display: inline-block;
+    color: red;
+  padding: 1em 2em;
+  margin: 0.5em;
+  cursor: pointer;
+  color: black;
+  border: 2px solid white;
+  border-radius: 25px;
+  transition: 0.3s;
+  user-select: none;
+} */

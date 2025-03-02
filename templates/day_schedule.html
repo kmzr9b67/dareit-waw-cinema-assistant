@@ -9,23 +9,23 @@
 {% else: %}
     <table id='' class="center">
         <thead>
-        <th scope="col">{{what_day}}</th> <!-- POWINNO ZMIENIAĆ SIĘ DYNAMICZNIE--> 
+        <th scope="col">{{what_day}}</th> 
         <th scope="col"></th>
         <th scope="col"></th>
-        <th scope="col" class="">{{what_date}}</th><!-- PdOWINNO ZMIENIAĆ SIĘ DYNAMICZNIE-->
+        <th scope="col" class="">{{what_date}}</th>
         </thead>
         <tbody>
             {% for i in post: %}
-            <tr>
-                <th scope="row"><a href={{i['link']}}>{{ i['title'] }}</a></th>
+            <tr class="table-row">
+                <th  scope="row"><a class="movie-title" href={{ i['link'] }}>{{ i['title'] }}</a><br><h5>reż.{{ i['director'] }}</h5></th>
                 <th><img src="/static/rating-icon.png"> {{ i['rating'] }}</th>
-                <th> {{ i['time'] }}</th>
+                <th class="movie-time"> {{ i['time'] }}</th>
                 {% if i['cinema'] == 'Iluzjon' %}
-                    <th><img src="/static/iluzjon-logo.png"></th> <!-- zmienić ['cinema'] żeby wyświetlało w zależności od kina odpowiednie logo -->
+                    <th><img class="cinema-logo" src="/static/iluzjon-logo.png"></th> 
                 {% else: %}
-                    <th><img src="/static/amondo-logo.png"></th>
+                    <th><img class="cinema-logo" src="/static/amondo-logo.png"></th>
                 {% endif %}
-                </tr>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
