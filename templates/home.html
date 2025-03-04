@@ -11,18 +11,17 @@
     <div class="container-form">
         <form action="{{url_for('get_info', options = day)}}"  method="GET">
             <div class="container-form">
-            <div class="radio-button">
+            
                 <input type="radio" id="TODAY" name="day" value="Today" checked>
-                <label for="TODAY">Today</label>
-            </div>
-            <div class="radio-button">
+                <label for="TODAY" class="radio-button-label">Today</label>
+            
                 <input type="radio" id="TOMORROW" name="day" value="Tomorrow">
-                <label for="TOMORROW">Tomorrow</label></div>
-            <div class="radio-button">
+                <label for="TOMORROW" class="radio-button-label">Tomorrow</label>
+            
                 <input type="radio" id="DAY AFTER TOMORROW" name="day" value={{day_after_tomorrow}}>
-                <label for="DAY AFTER TOMORROW">{{day_after_tomorrow}}</label>
-            </div>
-          <button id='button' type="submit" class="btn btn-primary"><img src="/static/arrow-main.png" width="24" height="24"></button>
+                <label for="DAY AFTER TOMORROW" class="radio-button-label">{{day_after_tomorrow}}</label>
+            
+          <button id='button' type="submit" class="btn btn-primary"><img src="/static/arrow-main.svg" width="24" height="24"></button>
         </div>
         </form>
     </div>
