@@ -8,3 +8,6 @@ def test_get_year():
 
     assert Iluzjon._Iluzjon__get_year(data_in_year) == expected_result_year
     assert Iluzjon._Iluzjon__get_year(data_in_string) == excepted_result_string
+
+# Przetestowac pierwsza funkcję 
+# Ustawić aby testy przy commit uruchamiłay się automatycznie 

@@ -22,10 +22,8 @@ def test_to_dictionary(movie):
         'link': 'https://example.com/inception',
         'director': 'Christopher Nolan',
         'year': 2010}
-    
     assert movie.to_dictionary() == expected_dict
 
 def test_set_rating(movie):
     movie.set_rating()
-
     assert movie.rating == 8.8

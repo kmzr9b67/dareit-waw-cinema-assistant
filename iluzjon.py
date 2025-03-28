@@ -19,7 +19,6 @@ class Iluzjon(CinemaScraper):
         movie = Movie(title=movie_title, time=schedule, cinema='Iluzjon',
                      year=realise_year, base_url=self.base_url)
         movie.set_rating()
-
         return movie.to_dictionary()
     
     @staticmethod
